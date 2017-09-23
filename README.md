@@ -1,14 +1,42 @@
 # pg-embedded-clj
 
-A Clojure library designed to ... well, that part is up to you.
+Embdded postgres for clojure based on otj-pg-embedded
 
-## Usage
 
-FIXME
+### Development:
 
-## License
+```clojure
+(require 'pg-embedded-clj.core)
 
-Copyright © 2017 FIXME
+;; Start an embedded pg with default port:
+(init-pg)
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+;; another call will halt the previous system:
+(init-pg)
+
+;; When you're done:
+(halt-pg!)
+```
+
+### Testing:
+
+**NOTE**: these will halt running pg-embedded instances
+
+```clojure
+(require 'clojure.test)
+
+(use-fixtures :once with-pg-fn)
+
+(defn around-all
+  [f]
+  (with-pg-fn (merge default-config
+                           {:port 54321})
+                    f))
+
+(use-fixtures :once around-all)
+
+;;; You can also wrap ad-hoc code in init/halt:
+(with-pg default-config
+	,,, :do-something ,,,)
+```
+
