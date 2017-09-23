@@ -1,7 +1,10 @@
 # pg-embedded-clj
 
-Embdded postgres for clojure based on otj-pg-embedded
+Embedded postgres for clojure - based on otj-pg-embedded
 
+## Usage
+
+[![Clojars Project](https://img.shields.io/clojars/v/bigsy/pg-embedded-clj.svg)](https://clojars.org/bigsy/pg-embedded-clj)
 
 ### Development:
 
