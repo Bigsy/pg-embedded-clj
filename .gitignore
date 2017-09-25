@@ -3,6 +3,7 @@
 /classes
 /checkouts
 pom.xml
+pom.xml.asc
 *.jar
 *.class
 /.lein-*
@@ -13,3 +14,4 @@ profiles.clj
 .idea
 *.iml
 *.log
+resources/
