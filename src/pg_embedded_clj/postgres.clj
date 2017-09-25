@@ -17,7 +17,6 @@
                  .start)))
 
 (defn halt! [pg]
-  (prn pg)
   (when pg
     (.close pg)))
 

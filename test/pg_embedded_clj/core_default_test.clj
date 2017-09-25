@@ -1,4 +1,4 @@
-(ns pg-embedded-clj.core-test
+(ns pg-embedded-clj.core-default-test
   (:require [clojure.test :refer :all]
             [clojure.java.jdbc :as jdbc]
             [pg-embedded-clj.core :as sut]

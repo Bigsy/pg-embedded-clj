@@ -33,7 +33,8 @@ Embedded postgres for clojure - based on otj-pg-embedded
 (defn around-all
   [f]
   (with-pg-fn (merge default-config
-                           {:port 54321})
+                           {:port 54321
+                           :log-redirect "wibble.log"})
                     f))
 
 (use-fixtures :once around-all)
