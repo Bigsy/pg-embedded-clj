@@ -10,5 +10,5 @@
                  [com.opentable.components/otj-pg-embedded "0.9.0"]
                  [org.slf4j/slf4j-jdk14 "1.7.25"]]
 
-  :profiles {:test
-             {:dependencies [[org.clojure/java.jdbc "0.7.1"]]}})
+  :profiles {:dev {:dependencies [[org.clojure/java.jdbc "0.7.1"]]
+                    :source-paths ["test"]}})

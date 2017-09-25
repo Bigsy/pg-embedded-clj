@@ -1,11 +1,10 @@
-(ns pg-embedded-clj.core-custom-test
+(ns pg-embedded-clj.custom-test
   (:require [clojure.test :refer :all]
             [clojure.java.jdbc :as jdbc]
             [pg-embedded-clj.core :as sut]
-            [clojure.java.io :as io]
-            [pg-embedded-clj.core :refer :all]))
+            [clojure.java.io :as io]))
 
-(use-fixtures :once with-pg-fn)
+(use-fixtures :once sut/with-pg-fn)
 
 (defn around-all
   [f]
