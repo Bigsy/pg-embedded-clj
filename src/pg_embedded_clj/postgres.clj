@@ -2,19 +2,16 @@
   (:require [integrant.core :as ig]
             [clojure.java.io :as io])
   (:import com.opentable.db.postgres.embedded.EmbeddedPostgres
-           java.lang.ProcessBuilder$Redirect
-           ))
+           java.lang.ProcessBuilder$Redirect))
 
 (defn ->pg [port pg-log]
-  (if pg-log (let [log-redirector (ProcessBuilder$Redirect/appendTo (io/file pg-log))]
-               (-> (EmbeddedPostgres/builder)
-                   (.setPort port)
-                   (.setOutputRedirector log-redirector)
-                   (.setErrorRedirector log-redirector)
-                   .start))
-             (-> (EmbeddedPostgres/builder)
-                 (.setPort port)
-                 .start)))
+  (let [pg (-> (EmbeddedPostgres/builder)
+               (.setPort port))]
+    (if pg-log (let [log-redirector (ProcessBuilder$Redirect/appendTo (io/file pg-log))]
+                 (-> pg
+                     (.setOutputRedirector log-redirector)
+                     (.setErrorRedirector log-redirector))))
+    (.start pg)))
 
 (defn halt! [pg]
   (when pg
