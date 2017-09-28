@@ -7,7 +7,7 @@
 (defn ->pg [port pg-log]
   (let [pg (-> (EmbeddedPostgres/builder)
                (.setPort port))]
-    (if pg-log (let [log-redirector (ProcessBuilder$Redirect/appendTo (io/file pg-log))]
+    (when pg-log (let [log-redirector (ProcessBuilder$Redirect/appendTo (io/file pg-log))]
                  (-> pg
                      (.setOutputRedirector log-redirector)
                      (.setErrorRedirector log-redirector))))
