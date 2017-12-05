@@ -1,4 +1,4 @@
-(defproject bigsy/pg-embedded-clj "0.0.4"
+(defproject bigsy/pg-embedded-clj "0.0.5"
   :description "Embedded postgres for clojure"
   :url "https://github.com/Bigsy/pg-embedded-clj"
   :license {:name "Eclipse Public License"
