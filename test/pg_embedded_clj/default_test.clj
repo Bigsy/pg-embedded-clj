@@ -20,6 +20,5 @@
               :user        "postgres"})
 (deftest can-wrap-around
   (testing "using defaults"
-      (is (= {:version
-              "PostgreSQL 10.3 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 4.4.7 20120313 (Red Hat 4.4.7-18), 64-bit"}
+      (is (= {:version "PostgreSQL 10.15 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 4.4.7 20120313 (Red Hat 4.4.7-23), 64-bit"}
              (first (jdbc/query db-spec ["select version()"]))))))

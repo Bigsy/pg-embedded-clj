@@ -1,6 +1,6 @@
 # pg-embedded-clj
 
-Embedded postgres for clojure - based on otj-pg-embedded
+Embedded postgres for clojure - based on https://github.com/zonkyio/embedded-postgres
 
 ## Usage
 

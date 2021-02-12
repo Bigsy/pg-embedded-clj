@@ -2,9 +2,7 @@
   (:require [clojure.pprint :as pprint]
             [clojure.tools.logging :as log]
             [integrant.core :as ig]
-            [pg-embedded-clj.state :as state]
-            [clojure.java.io :as io])
-  (:import com.opentable.db.postgres.embedded.EmbeddedPostgres))
+            [pg-embedded-clj.state :as state]))
 
 (def default-config
   {:port         5432
