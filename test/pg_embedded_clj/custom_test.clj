@@ -1,8 +1,8 @@
 (ns pg-embedded-clj.custom-test
-  (:require [clojure.test :refer :all]
+  (:require [clojure.java.io :as io]
             [clojure.java.jdbc :as jdbc]
-            [pg-embedded-clj.core :as sut]
-            [clojure.java.io :as io]))
+            [clojure.test :refer [deftest is testing use-fixtures]]
+            [pg-embedded-clj.core :as sut]))
 
 (use-fixtures :once sut/with-pg-fn)
 
@@ -18,14 +18,14 @@
 (def db-spec {:classname   "org.postgresql.Driver"
               :subprotocol "postgresql"
               :subname     (str
-                             "//localhost:"
-                             54321
-                             "/postgres")
+                            "//localhost:"
+                            54321
+                            "/postgres")
               :user        "postgres"})
 (deftest can-wrap-around
   (testing "using custom port"
-      (is (= {:version "PostgreSQL 10.15 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 4.4.7 20120313 (Red Hat 4.4.7-23), 64-bit"}
-             (first (jdbc/query db-spec ["select version()"])))))
+    (is (= {:version "PostgreSQL 10.18 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 4.4.7 20120313 (Red Hat 4.4.7-23), 64-bit"}
+           (first (jdbc/query db-spec ["select version()"])))))
 
   (testing "using custom log redirect"
     (is (= true (.exists (io/as-file "wibble.log"))))))
