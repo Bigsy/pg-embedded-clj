@@ -4,8 +4,7 @@ Embedded postgres for clojure - based on https://github.com/zonkyio/embedded-pos
 
 ## Usage
 
-[![Clojars Project](https://img.shields.io/clojars/v/bigsy/pg-embedded-clj.svg)](https://clojars.org/bigsy/pg-embedded-clj)
-
+[![Clojars Project](https://img.shields.io/clojars/v/org.clojars.bigsy/pg-embedded-clj.svg)](https://clojars.org/org.clojars.bigsy/pg-embedded-clj)
 ### Development:
 
 ```clojure
