@@ -15,3 +15,5 @@ profiles.clj
 *.iml
 *.log
 resources/
+.lsp/.cache
+.clj-kondo/.cache

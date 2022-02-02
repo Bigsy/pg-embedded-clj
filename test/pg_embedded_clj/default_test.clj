@@ -1,6 +1,6 @@
 (ns pg-embedded-clj.default-test
-  (:require [clojure.test :refer :all]
-            [clojure.java.jdbc :as jdbc]
+  (:require [clojure.java.jdbc :as jdbc]
+            [clojure.test :refer [deftest is testing use-fixtures]]
             [pg-embedded-clj.core :as sut]))
 
 (use-fixtures :once sut/with-pg-fn)
@@ -20,5 +20,5 @@
               :user        "postgres"})
 (deftest can-wrap-around
   (testing "using defaults"
-      (is (= {:version "PostgreSQL 10.15 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 4.4.7 20120313 (Red Hat 4.4.7-23), 64-bit"}
+      (is (= {:version "PostgreSQL 10.18 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 4.4.7 20120313 (Red Hat 4.4.7-23), 64-bit"}
              (first (jdbc/query db-spec ["select version()"]))))))
