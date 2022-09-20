@@ -24,7 +24,7 @@
               :user        "postgres"})
 (deftest can-wrap-around
   (testing "using custom port"
-    (is (= {:version "PostgreSQL 10.18 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 4.4.7 20120313 (Red Hat 4.4.7-23), 64-bit"}
+    (is (= {:version "PostgreSQL 14.5 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 4.8.4-2ubuntu1~14.04.4) 4.8.4, 64-bit"}
            (first (jdbc/query db-spec ["select version()"])))))
 
   (testing "using custom log redirect"
