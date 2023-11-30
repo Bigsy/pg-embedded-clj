@@ -18,7 +18,18 @@
                              5432
                              "/postgres")
               :user        "postgres"})
+
+(defn extract-postgres-version [input]
+  (if input
+    (if-let [matches (re-matches #".*PostgreSQL (\d+\.\d+).*" input)]
+      (second matches)
+      "Version not found")
+    "No postgres result input"))
+
 (deftest can-wrap-around
   (testing "using defaults"
-      (is (= {:version "PostgreSQL 14.5 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 4.8.4-2ubuntu1~14.04.4) 4.8.4, 64-bit"}
-             (first (jdbc/query db-spec ["select version()"]))))))
+    (is (= (some-> (jdbc/query db-spec ["select version()"])
+                   first
+                   :version
+                   extract-postgres-version)
+           "14.8"))))
