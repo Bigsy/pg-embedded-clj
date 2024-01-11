@@ -43,3 +43,9 @@ Embedded postgres for clojure - based on https://github.com/zonkyio/embedded-pos
 	,,, :do-something ,,,)
 ```
 
+### Other useful clojure wrapped embedded testing libs
+* https://github.com/Bigsy/dynamo-embedded-clj
+* https://github.com/Bigsy/redis-embedded-clj
+* https://github.com/Bigsy/s3-clj
+* https://github.com/Bigsy/elasticmq-clj
+* https://github.com/Bigsy/sns-clj
