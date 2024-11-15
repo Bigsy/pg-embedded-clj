@@ -6,6 +6,7 @@
 
 (defn ->pg [port pg-log]
   (let [pg (-> (EmbeddedPostgres/builder)
+               (.setLocaleConfig "locale", "en_US.UTF-8")
                (.setPort port))]
     (when pg-log (let [log-redirector (ProcessBuilder$Redirect/appendTo (io/file pg-log))]
                    (-> pg
@@ -22,3 +23,5 @@
 
 (defmethod ig/halt-key! ::postgres [_ pg]
   (halt! pg))
+
+(->pg 9999 nil)

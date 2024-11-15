@@ -36,7 +36,7 @@
                    first
                    :version
                    extract-postgres-version)
-           "14.8")))
+           "14.10")))
 
   (testing "using custom log redirect"
     (is (= true (.exists (io/as-file "wibble.log"))))))
