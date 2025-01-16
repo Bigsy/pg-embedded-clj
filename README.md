@@ -87,8 +87,7 @@ The following configuration options are available:
 
 ```clojure
 {:port 5432          ; PostgreSQL port (default: 5432)
- :log-redirect nil   ; Log file path (default: nil for no logging)
- :data-dir nil}      ; Custom data directory (optional)
+ :log-redirect nil   ; Log file path (default: nil for no logging)}
 ```
 
 ## Related Libraries
