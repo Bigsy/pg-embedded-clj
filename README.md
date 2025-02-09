@@ -43,7 +43,7 @@ To use a specific PostgreSQL version or architecture, include an additional depe
 
 ;; Start PostgreSQL with custom configuration
 (init-pg {:port 5433
-         :log-redirect "postgres.log"})
+          :log-redirect "postgres.log"})
 
 ;; Stop the PostgreSQL instance
 (halt-pg!)
