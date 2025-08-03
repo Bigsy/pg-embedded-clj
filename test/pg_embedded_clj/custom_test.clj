@@ -1,6 +1,6 @@
 (ns pg-embedded-clj.custom-test
   (:require [clojure.java.io :as io]
-            [clojure.java.jdbc :as jdbc]
+            [next.jdbc :as jdbc]
             [clojure.test :refer [deftest is testing use-fixtures]]
             [pg-embedded-clj.core :as sut]))
 
@@ -15,13 +15,7 @@
 
 (use-fixtures :once around-all)
 
-(def db-spec {:classname   "org.postgresql.Driver"
-              :subprotocol "postgresql"
-              :subname     (str
-                            "//localhost:"
-                            54321
-                            "/postgres")
-              :user        "postgres"})
+(def db-spec (str "jdbc:postgresql://localhost:" 54321 "/postgres?user=postgres"))
 
 (defn extract-postgres-version [input]
   (if input
@@ -32,8 +26,7 @@
 
 (deftest can-wrap-around
   (testing "using custom port"
-    (is (= (some-> (jdbc/query db-spec ["select version()"])
-                   first
+    (is (= (some-> (jdbc/execute-one! db-spec ["select version()"])
                    :version
                    extract-postgres-version)
            "14.10")))
