@@ -10,4 +10,4 @@
                  [org.clojure/tools.namespace "1.5.0"]]
 
 
-  :profiles {:dev {:dependencies [[org.clojure/java.jdbc "0.7.12"]]}})
+  :profiles {:dev {:dependencies [[com.github.seancorfield/next.jdbc "1.3.939"]]}})
