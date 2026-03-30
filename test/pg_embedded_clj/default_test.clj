@@ -32,4 +32,4 @@
                    first
                    :version
                    extract-postgres-version)
-           "14.10"))))
+           "14.22"))))

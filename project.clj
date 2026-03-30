@@ -5,7 +5,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.12.0"]
                  [integrant "0.13.1"]
-                 [io.zonky.test/embedded-postgres "2.0.7"]
+                 [io.zonky.test/embedded-postgres "2.2.2"]
                  [org.clojure/tools.logging "1.3.0"]
                  [org.clojure/tools.namespace "1.5.0"]]
 
