@@ -1,4 +1,4 @@
-(defproject org.clojars.bigsy/pg-embedded-clj "1.0.2"
+(defproject org.clojars.bigsy/pg-embedded-clj "1.0.3"
   :description "Embedded postgres for clojure"
   :url "https://github.com/Bigsy/pg-embedded-clj"
   :license {:name "Eclipse Public License"
@@ -9,5 +9,10 @@
                  [org.clojure/tools.logging "1.3.0"]
                  [org.clojure/tools.namespace "1.5.0"]]
 
+
+  :deploy-repositories [["clojars" {:url "https://repo.clojars.org"
+                                     :username :env/clojars_username
+                                     :password :env/clojars_password
+                                     :sign-releases false}]]
 
   :profiles {:dev {:dependencies [[org.clojure/java.jdbc "0.7.12"]]}})
